@@ -1,38 +1,109 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* justify-content: center; */
+  /* font-size: calc(10px + 2vmin); */
   color: white;
 }
 
-.App-link {
+header {
+  background-color: #191c21;
+  width: 100vw;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.HomeDiv {
+ display: contents;
+}
+
+.App h1 {
+  color: #61dafb;
+  margin: 20px;
+}
+
+p {
+  font-size: calc(5px + 2vmin);
+}
+
+.create-note-Title {
+  margin-top: 30px;
+}
+
+.list-all-notes-title {
+  margin-top: 20px;
+}
+
+.date {
+  font-size: calc(5px + 1vmin);
+  margin: 0;
+}
+
+.completionStatus {
+  display: flex;
+  justify-content: center;
+}
+
+.completionStatus input {
+  margin-bottom: 15px;
+  margin-left: 11px;
+}
+
+.completionStatus p {
+  font-size: calc(5px + 1vmin);
+}
+
+.Note {
+  background-color: #1b1f24;
+  padding: 10px;
+  padding-bottom: 15px;
+  width: 45vw;
+  margin: 8px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Note h2 {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Note form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.Note label {
+  margin-top: 5px;
+}
+
+.Note input[name="title"], [name="description"] {
+  width: 20vw;
+}
+
+.Note input[name="dueDate"] {
+  width: 150px;
+}
+
+.Note Button {
+  margin-top: 10px;
+}
+
+.due-date-container {
+  margin-top: 10px;
+  margin-right: 70px;
+}
+.due-date-container label {
+  margin-right: 10px;
+}
+
+.completed-container label {
+  margin-right: 10px;
+}
+
