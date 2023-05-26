@@ -118,3 +118,10 @@ p {
     top: 10px;
     right: 10px;
 }
+
+/* error: empty text field */
+input::placeholder,
+textarea::placeholder {
+    color: rgb(222, 37, 37);
+}
+

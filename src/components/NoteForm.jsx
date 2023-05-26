@@ -10,6 +10,8 @@ export default function NoteForm(props){
     // the dispatch is our reducer, can edit global notes data
     const globalNotesDispatch = useNoteDispatch()
 
+    const [errorMessage, setErrorMessage] = useState("")
+
     const [localTitle, setLocalTitle] = useState("")
     const [localDescription, setLocalDescription] = useState("")
     const [localIsCompleted, setLocalIsCompleted] = useState(false)
@@ -32,6 +34,11 @@ export default function NoteForm(props){
     }, [globalNotesData, id])
 
     const saveNoteToGlobal = () => {
+            // Check if title and description are empty
+        if (!localTitle || !localDescription) {
+            setErrorMessage("Field required")
+            return
+        }
 
         let tempNewNote = {
             id: id || globalNotesData.length + 1,
@@ -56,16 +63,20 @@ export default function NoteForm(props){
         setLocalDescription("");
         setLocalIsCompleted(false);
         setLocalDueDate(new Date().setDate(new Date().getDate() + 1));
+
+        // Reset field error messages
+        setErrorMessage("");
     }
 
     return(
         <div className="Note">
+            {errorMessage && <p>{errorMessage}</p>}
             <form>
                 <label>Title: </label>
-                <input type="text" name="title" value={localTitle} onChange={(event) => setLocalTitle(event.target.value)} />
+                <input type="text" name="title" value={localTitle} placeholder={errorMessage} onChange={(event) => setLocalTitle(event.target.value)} />
                 
                 <label>Description: </label>
-                <textarea name="description" value={localDescription} onChange={(event) => setLocalDescription(event.target.value)} />
+                <textarea name="description" value={localDescription} placeholder={errorMessage} onChange={(event) => setLocalDescription(event.target.value)} />
                 {/* <input type="text" name="description" value={localDescription} onChange={(event) => setLocalDescription(event.target.value)} /> */}
 
                 <div className="due-date-container">
