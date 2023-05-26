@@ -1,4 +1,3 @@
-// import NoteDisplay from "../components/NoteDisplay"
 import NoteForm from "../components/NoteForm"
 import NoteParent from "../components/NoteParent"
 import { useNoteData } from "../contexts/NotesContext"
@@ -11,6 +10,9 @@ export default function Homepage(){
         setEditMode(!editMode);
     }
 
+    // State to minimize new note form
+    const [showNewNoteForm, setShowNewNoteForm] = useState(false)
+
     const globalNotesData = useNoteData()
     
     return(
@@ -21,14 +23,14 @@ export default function Homepage(){
 
             <h4>{globalNotesData.length} notes in storage</h4>
 
-            <h4 className="create-note-Title">Create a new note: </h4>
-            <NoteForm toggleEditMode={toggleEditMode} />
+            <h4 className="create-note-Title">Create new note: </h4>
+            <button onClick={() => setShowNewNoteForm(!showNewNoteForm)}>{showNewNoteForm ? "Minimize" : "Create New Note"} </button>
+            {showNewNoteForm && <NoteForm toggleEditMode={toggleEditMode}/>}
 
             <h4 className="list-all-notes-title">List of all notes: </h4>
             {globalNotesData.map((note) =>{
                 return(
                     <div key={note.id} className="Note">
-                        {/* <NoteDisplay id={note.id} /> */}
                         <NoteParent id={note.id} />
                     </div>
                 )

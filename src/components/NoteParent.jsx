@@ -13,6 +13,7 @@ export default function NoteParent(props){
         setEditMode(!editMode);
     }
 
+    // checkbox toggle
     const toggleIsCompleted = () => {
         let tempNote = globalNotesData.find((globalSpecificNote) => {
             return globalSpecificNote.id === props.id
