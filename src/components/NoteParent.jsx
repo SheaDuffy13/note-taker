@@ -25,8 +25,10 @@ export default function NoteParent(props){
     return(
         // when doing conditional logic, need it in a div
         <div>
-            {editMode ? <NoteForm id={props.id} toggleEditMode={toggleEditMode} /> : <NoteDisplay id={props.id} toggleIsCompleted={toggleIsCompleted} />}
-            <button onClick={toggleEditMode}>Edit Note</button>
+            {editMode ? <NoteForm id={props.id} toggleEditMode={toggleEditMode} /> 
+                : 
+            <NoteDisplay id={props.id} toggleIsCompleted={toggleIsCompleted} toggleEditMode={toggleEditMode} />}
+            {/* <button onClick={toggleEditMode}>Edit Note</button> */}
         </div>
     )
 }

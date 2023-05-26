@@ -10,3 +10,4 @@ Basic functionality made during class (create, edit, list notes). Further featur
 - Saving note after edit will auto close form.
 - Checkboxes can be used to alter ToDo/Complete without having to use the Edit Note button.
 - Button to minimize the new note form (true by default).
+- Buttons to minimize or expand the contents of existing notes.
