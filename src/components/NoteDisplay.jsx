@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react"
-import { useNoteData } from "../contexts/NotesContext"
+import { useNoteData, useNoteDispatch } from "../contexts/NotesContext"
 
 export default function NoteDisplay(props){
 
     const {id} = props
     const [localNote, setLocalNote] = useState({});
-    // minimize notes
-    const [showNoteDetails, setShowNoteDetails] = useState(true)
-
     const globalNotesData = useNoteData();
+    // minimize notes
+    const [showNoteDetails, setShowNoteDetails] = useState(true);
+    // for delete button
+    const globalNotesDispatch = useNoteDispatch();
+
+    const handleDeleteNote = () => {
+        globalNotesDispatch({type: "delete", id: id})
+    }
 
     useEffect(() => {
         // on start, find note in globalNotesData that has an id matching props.id
@@ -35,35 +40,11 @@ export default function NoteDisplay(props){
                     <p className="date">Created At: {new Date(localNote.createdAtDate).toLocaleDateString()}</p>
                     {/* Edit note button */}
                     <button onClick={() => props.toggleEditMode()}>Edit Note</button>
+                    {/* Delete note button */}
+                    <button onClick={() => handleDeleteNote()}>Delete Note</button>
                 </>
             )}
-            
-            {/* <button onClick={() => props.toggleEditMode()}>Edit Note</button> */}
         </div>
     )
     
-
-    // return(
-    //     <div>
-    //         <h2>{localNote.title}</h2>
-    //         <div className="completionStatus">
-    //             <p>{localNote.isCompleted ? "COMPLETE" : "TO DO"}</p>
-    //             <input type="checkbox" name="isCompleted" value={localNote.isCompleted} checked={Boolean(localNote.isCompleted)} onChange={() => props.toggleIsCompleted()} />
-    //         </div>
-
-    //         {/* minimize notes */}
-    //         <button onClick={() => setShowNoteDetails(!showNoteDetails)}>{showNoteDetails ? "Minimize" : "Show"} Note Details</button>
-    //         {showNoteDetails && (
-    //         <>
-    //             <p>{localNote.description}</p>
-    //             <p className="date">Due Date: {new Date(localNote.dueDate).toLocaleDateString()}</p>
-    //             <p className="date">Created At: {new Date(localNote.createdAtDate).toLocaleDateString()}</p>
-    //         </>
-    //         )}
-            
-    //         {/* <p>{localNote.description}</p> */}
-    //         {/* <p className="date">Due Date: {new Date(localNote.dueDate).toLocaleDateString()}</p>
-    //         <p className="date">Created At: {new Date(localNote.createdAtDate).toLocaleDateString()}</p> */}
-    //     </div>
-    // )
 }

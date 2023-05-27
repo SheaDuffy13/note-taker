@@ -50,8 +50,8 @@ const notesReducer = (previousState, instructions) => {
             // 3. return updated state array of notes
             return stateEditable
         case "delete":
-            console.log('TODO: Delete from state')
-            break;
+            stateEditable = stateEditable.filter(note => note.id !== instructions.id)
+            return stateEditable;
         case "sortByDueDate":
             console.log('Sorted state data by due date')
             break;
