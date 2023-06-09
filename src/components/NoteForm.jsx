@@ -73,11 +73,10 @@ export default function NoteForm(props){
             {errorMessage && <p>{errorMessage}</p>}
             <form>
                 <label>Title: </label>
-                <input type="text" name="title" value={localTitle} placeholder={errorMessage} onChange={(event) => setLocalTitle(event.target.value)} />
+                <input type="text" name="title" value={localTitle} placeholder={errorMessage} maxLength={60} onChange={(event) => setLocalTitle(event.target.value)} />
                 
                 <label>Description: </label>
                 <textarea name="description" value={localDescription} placeholder={errorMessage} onChange={(event) => setLocalDescription(event.target.value)} />
-                {/* <input type="text" name="description" value={localDescription} onChange={(event) => setLocalDescription(event.target.value)} /> */}
 
                 <div className="due-date-container">
                 <label>Due Date: </label>

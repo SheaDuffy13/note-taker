@@ -19,23 +19,23 @@ export default function Homepage(){
         <div className="HomeDiv">
             <header>
                 <h1>Note Taker</h1>
+                <h4>{globalNotesData.length} notes in storage</h4>
             </header>
 
-            <h4>{globalNotesData.length} notes in storage</h4>
 
             <h4 className="create-note-Title">Create new note: </h4>
             <button onClick={() => setShowNewNoteForm(!showNewNoteForm)}>{showNewNoteForm ? "Minimize" : "Create New Note"} </button>
             {showNewNoteForm && <NoteForm toggleEditMode={toggleEditMode}/>}
 
-            <h4 className="list-all-notes-title">List of all notes: </h4>
-            {/* {globalNotesData.map((note) =>{ */}
-            {globalNotesData.slice().sort((a, b) => b.createdAtDate - a.createdAtDate).map((note) =>{
-                return(
-                    <div key={note.id} className="Note">
-                        <NoteParent id={note.id} />
-                    </div>
-                )
-            })}
+            <h4 className="existing-notes-title">List of all notes: </h4>
+                 {/* {globalNotesData.map((note) =>{ */}
+                {globalNotesData.slice().sort((a, b) => b.createdAtDate - a.createdAtDate).map((note) =>{
+                    return(
+                        <div key={note.id} className="Note">
+                            <NoteParent id={note.id} />
+                        </div>
+                     )
+                })}           
         </div>
     )
 }

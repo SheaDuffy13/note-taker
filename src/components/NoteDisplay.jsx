@@ -22,7 +22,7 @@ export default function NoteDisplay(props){
 
     return(
         <div>
-            <h2 className="note-title" style={{color: localNote.isCompleted ? "#386d7b" : null}}>{localNote.title}</h2>
+            <h2 className="note-title" style={{color: localNote.isCompleted ? "#c49a529b" : null}}>{localNote.title}</h2>
             <p className="date">Due Date: {new Date(localNote.dueDate).toLocaleDateString()}</p>
             <div className="completionStatus">
                 <p>{localNote.isCompleted ? "COMPLETE" : "TO DO"}</p>
@@ -31,12 +31,11 @@ export default function NoteDisplay(props){
     
             {/* minimize notes */}
             <div className="minimize-button">
-                <button onClick={() => setShowNoteDetails(!showNoteDetails)}>{showNoteDetails ? "Collapse" : "Expand"} </button>
+                <button onClick={() => setShowNoteDetails(!showNoteDetails)}>{showNoteDetails ? "-" : "+"} </button>
             </div>
             {showNoteDetails && (
                 <>
                     <p className="noteDescription">{localNote.description}</p>
-                    
                     <p className="date">Created At: {new Date(localNote.createdAtDate).toLocaleDateString()}</p>
                     {/* Edit note button */}
                     <button onClick={() => props.toggleEditMode()}>Edit Note</button>

@@ -21,8 +21,12 @@ header {
  display: contents;
 }
 
+.HomeDiv h4 {
+  font-size: 15px;
+}
+
 .App h1 {
-  color: #61dafb;
+  color: #c49a52;
   margin: 20px;
 }
 
@@ -34,34 +38,39 @@ p {
   margin-top: 30px;
 }
 
-.list-all-notes-title {
+.existing-notes-title {
   margin-top: 20px;
 }
 
 .date {
-  font-size: calc(5px + 1vmin);
+  font-size: calc(5px + 0.8vmin);
   margin: 0;
+  opacity: 60%;
 }
 
 .completionStatus {
   display: flex;
   justify-content: center;
+  opacity: 80%;
+  /* color: #ffffffd8; */
 }
 
 .completionStatus input {
-  margin-bottom: 15px;
   margin-left: 11px;
 }
 
 .completionStatus p {
   font-size: calc(5px + 1vmin);
+  margin-bottom: 0px;
 }
 
 .Note {
   background-color: #1b1f24;
   padding: 10px;
   padding-bottom: 15px;
-  width: 45vw;
+  max-width: 30vw;
+  min-width: 20vw;
+  /* width: 30vw; */
   margin: 8px;
   
   display: flex;
@@ -71,7 +80,8 @@ p {
 }
 
 .Note h2 {
-  color: #61dafb;
+  color: #c49a52;
+  font-size: calc(10px + 1.2vmin); 
 }
 
 .Note form {
@@ -93,8 +103,10 @@ p {
 }
 
 .noteDescription  {
-  font-size: calc(5px + 1.5vmin);
+  font-size: calc(5px + 1.1vmin);
   font-style: italic;
+  margin: 3px;
+
 }
 
 .Note Button {
@@ -113,15 +125,20 @@ p {
   margin-right: 10px;
 }
 
-.minimize-button {
+.minimize-button button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: -23px;
+    right: -4px;
+    color:#c49a52;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 24px;
 }
 
 /* error: empty text field */
 input::placeholder,
 textarea::placeholder {
-    color: rgb(222, 37, 37);
+    color: #de2525;
 }
 
