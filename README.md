@@ -1,3 +1,3 @@
 # Practice React Note App
 
-Live site: 
+Live site: https://sd-notetaker.netlify.app/

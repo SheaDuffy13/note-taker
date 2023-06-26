@@ -22,7 +22,7 @@ export default function NoteDisplay(props){
 
     return(
         <div>
-            <h2 className="note-title" style={{color: localNote.isCompleted ? "#c49a529b" : null}}>{localNote.title}</h2>
+            <h2 className="note-title" style={{color: localNote.isCompleted ? "#787878" : null}}>{localNote.title}</h2>
             <p className="date">Due Date: {new Date(localNote.dueDate).toLocaleDateString()}</p>
             <div className="completionStatus">
                 <p>{localNote.isCompleted ? "COMPLETE" : "TO DO"}</p>
