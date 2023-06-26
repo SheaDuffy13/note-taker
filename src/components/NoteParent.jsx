@@ -11,7 +11,7 @@ export default function NoteParent(props){
     const toggleEditMode = () => {
         // sets to opposite of whatever edit mode is
         setEditMode(!editMode);
-    }
+    } 
 
     // checkbox toggle
     const toggleIsCompleted = () => {
@@ -24,7 +24,7 @@ export default function NoteParent(props){
 
     return(
         // when doing conditional logic, need it in a div
-        <div>
+        <div className="notes-container">
             {editMode ? <NoteForm id={props.id} toggleEditMode={toggleEditMode} /> 
                 : 
             <NoteDisplay id={props.id} toggleIsCompleted={toggleIsCompleted} toggleEditMode={toggleEditMode} />}

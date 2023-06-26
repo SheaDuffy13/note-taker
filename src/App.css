@@ -6,8 +6,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
-  /* font-size: calc(10px + 2vmin); */
   color: #000000;
 }
 
@@ -75,6 +73,7 @@ p {
   min-width: 20vw;
   /* width: 30vw; */
   margin: 8px;
+  border-radius: 10px;
   
   display: flex;
   flex-direction: column;

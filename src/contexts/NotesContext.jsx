@@ -5,7 +5,7 @@ const initialNotesData = [
     {
         id: 1,
         title: "Example Note",
-        description: "lorem ipsum dolor lorem ipsum dolor ect etc lorem ipsum dolor lorem ipsum dolor ect etc",
+        description: "Description text goes here",
         isCompleted: false,
         dueDate: new Date().setDate(new Date().getDate() + 1), // current time + one day
         createdAtDate: Date.now()
